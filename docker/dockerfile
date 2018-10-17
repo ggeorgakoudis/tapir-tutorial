@@ -1,0 +1,8 @@
+FROM library/ubuntu:16.04
+RUN apt-get update
+RUN apt-get install software-properties-common -y
+RUN apt-add-repository ppa:wsmoses/tapir-toolchain
+RUN apt-get update
+RUN apt-get install tapirclang-5.0 libcilkrts5 -y
+RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-5.0 10 --slave /usr/bin/clang++ clang++ /usr/bin/clang++-5.0
+RUN update-alternatives --config clang
