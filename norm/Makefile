@@ -1,5 +1,8 @@
 all: fast.o slow.o fast.ll slow.ll
 
+clean:
+	rm -f fast.o slow.o fast.ll slow.ll
+
 slow.ll: norm.c
 	../dockerscript.sh clang -O3 -fcilkplus /host/norm.c -fdetach -o /host/slow.ll -S -emit-llvm
 

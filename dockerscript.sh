@@ -1,1 +1,1 @@
-docker run --rm -v `pwd`:/host --name tapirdocker wsmoses/tapir-built "$@"
+docker run -v `pwd`:/host wsmoses/tapir-built "$@"
