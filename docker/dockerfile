@@ -3,6 +3,8 @@ RUN apt-get update
 RUN apt-get install software-properties-common -y
 RUN apt-add-repository ppa:wsmoses/tapir-toolchain
 RUN apt-get update
-RUN apt-get install tapirclang-5.0 libcilkrts5 -y
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get install tapirclang-5.0 tapirllvm-5.0 libcilkrts5 -y --no-install-recommends -o Dpkg::Options::="--force-overwrite"
 RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-5.0 10 --slave /usr/bin/clang++ clang++ /usr/bin/clang++-5.0
+RUN update-alternatives --install /usr/bin/opt opt /usr/bin/opt-5.0 10 
 RUN update-alternatives --config clang

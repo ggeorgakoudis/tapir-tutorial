@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <cilk/cilk.h>
-
 #include <cilk/cilk_api.h>
-
-//extern int __cilkrts_get_nworkers();
 
 int fib(int n) {
     if (n < 2) return 1;
